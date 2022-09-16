@@ -1,17 +1,49 @@
+- name: Run timesync System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.timesync
+
+- name: Run firewall System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.firewall
+    
+- name: Run cockpit System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.cockpit
+    
+- name: Run tlog System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.tlog
+
+- name: Run sshd System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.sshd
+    
+- name: Run metrics System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.metrics
+       
+- name: Run storage System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.storage
+
+- name: Run nbde_server System Role
+  hosts: tang_servers
+  roles:
+    - redhat.rhel_system_roles.nbde_server
+       
+- name: Run nbde_client System Role
+  hosts: clevis_clients
+  roles:
+    - redhat.rhel_system_roles.nbde_client
+
 - name: Run crypto-policies System Role
   hosts: all
   roles:
     - redhat.rhel_system_roles.crypto_policies
-
-- name: Show gathered information
-  hosts: all
-  tasks: 
-    - name: Show currently active crypto-policy
-      debug:
-        msg: "Currently active crypto-policy: {{ crypto_policies_active }}"
-    - name: Show available policies
-      debug:
-        msg: "Available policies: {{ crypto_policies_available_policies }}"
-    - name: Show available policy modules
-      debug:
-        msg: "Available policy modules: {{ crypto_policies_available_modules }}"
