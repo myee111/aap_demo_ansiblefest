@@ -1,12 +1,22 @@
-- name: Run timesync System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.timesync
-
 - name: Run firewall System Role
   hosts: all
   roles:
     - redhat.rhel_system_roles.firewall
+
+- name: Run nbde_server System Role
+  hosts: nbde_tang_servers
+  roles:
+    - redhat.rhel_system_roles.nbde_server
+       
+- name: Run nbde_client System Role
+  hosts: nbde_clevis_clients
+  roles:
+    - redhat.rhel_system_roles.nbde_client    
+
+- name: Run timesync System Role
+  hosts: all
+  roles:
+    - redhat.rhel_system_roles.timesync
     
 - name: Run cockpit System Role
   hosts: all
@@ -32,16 +42,6 @@
   hosts: all
   roles:
     - redhat.rhel_system_roles.storage
-
-- name: Run nbde_server System Role
-  hosts: nbde_tang_servers
-  roles:
-    - redhat.rhel_system_roles.nbde_server
-       
-- name: Run nbde_client System Role
-  hosts: nbde_clevis_clients
-  roles:
-    - redhat.rhel_system_roles.nbde_client
 
 - name: Run crypto-policies System Role
   hosts: all
