@@ -34,12 +34,12 @@
     - redhat.rhel_system_roles.storage
 
 - name: Run nbde_server System Role
-  hosts: tang_servers
+  hosts: nbde_tang_servers
   roles:
     - redhat.rhel_system_roles.nbde_server
        
 - name: Run nbde_client System Role
-  hosts: clevis_clients
+  hosts: nbde_clevis_clients
   roles:
     - redhat.rhel_system_roles.nbde_client
 
