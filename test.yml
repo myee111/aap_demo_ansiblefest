@@ -5,7 +5,9 @@
         msg: "{{ firewall_global }}, {{ firewall_group | default([]) }}"  
     - name: combine variables
       set_fact:
-        firewall: "{{ firewall_global }} + {{ firewall_group | default([]) }}"
+        firewall: 
+          - "{{ firewall_global }}"
+          -  "{{ firewall_group | default([]) }}"
     - debug:
         msg: "{{ firewall }}"
 
