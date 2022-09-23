@@ -1,7 +1,8 @@
 - name: Combine firewall_global and firewall_group in to firewall variable
   hosts: all
   tasks:
-    - set_fact:
+    - name: combine variables
+      set_fact:
         firewall: "{{ firewall_global }} + {{ firewall_group | default([]) }}"
     - debug:
         msg: "{{ firewall }}"
