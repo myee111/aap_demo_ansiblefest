@@ -1,13 +1,12 @@
 - name: Combine firewall_global and firewall_group in to firewall variable
   hosts: all
   tasks:
-    - debug:
-        msg: "{{ firewall_global }}, {{ firewall_group | default([]) }}"  
     - name: combine variables
       set_fact:
         firewall_temp: 
           - "{{ firewall_global }}"
-          - "{{ firewall_group | default([]) }}"
+          - "{{ firewall_group_grafana | default([]) }}"
+          - "{{ firewall_group_nbde_tang_servers | default([]) }}"
     - name: flatten variable      
       set_fact:
         firewall: "{{ firewall_temp | flatten}}"
