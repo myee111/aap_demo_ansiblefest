@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     set_fact:
-      firewall: "{{ firewall_global | combine(firewall_group) }}"
+      firewall: "{{ firewall_global + (firewall_group | default(omit)) }}"
 
 - name: Run firewall System Role
   hosts: all
