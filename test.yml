@@ -1,49 +1,56 @@
+- name: Combine firewall_global and firewall_group in to firewall variable
+  hosts: all
+  set_fact:
+    firewall:
+      {{ firewall_global }}
+      {{ firewall_group | default(omit) }}
+
 - name: Run firewall System Role
   hosts: all
   roles:
     - redhat.rhel_system_roles.firewall
 
-- name: Run nbde_server System Role
-  hosts: nbde_tang_servers
-  roles:
-    - redhat.rhel_system_roles.nbde_server
+#- name: Run nbde_server System Role
+#  hosts: nbde_tang_servers
+#  roles:
+#    - redhat.rhel_system_roles.nbde_server
        
-- name: Run nbde_client System Role
-  hosts: nbde_clevis_clients
-  roles:
-    - redhat.rhel_system_roles.nbde_client    
+#- name: Run nbde_client System Role
+#  hosts: nbde_clevis_clients
+#  roles:
+#    - redhat.rhel_system_roles.nbde_client    
 
-- name: Run timesync System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.timesync
+#- name: Run timesync System Role
+#  hosts: all
+#  roles:
+#    - redhat.rhel_system_roles.timesync
     
-- name: Run cockpit System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.cockpit
+#- name: Run cockpit System Role
+#  hosts: all
+#  roles:
+#    - redhat.rhel_system_roles.cockpit
     
-- name: Run tlog System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.tlog
+#- name: Run tlog System Role
+#  hosts: all
+#  roles:
+#    - redhat.rhel_system_roles.tlog
 
-- name: Run sshd System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.sshd
+#- name: Run sshd System Role
+#  hosts: all
+#  roles:
+#    - redhat.rhel_system_roles.sshd
     
-- name: Run metrics System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.metrics
+#- name: Run metrics System Role
+#  hosts: all
+#  roles:
+#    - redhat.rhel_system_roles.metrics
        
-- name: Run storage System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.storage
+#- name: Run storage System Role
+#  hosts: all
+#  roles:
+#    - redhat.rhel_system_roles.storage
 
-- name: Run crypto-policies System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.crypto_policies
+#- name: Run crypto-policies System Role
+#  hosts: all
+#  roles:
+#    - redhat.rhel_system_roles.crypto_policies
