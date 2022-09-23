@@ -1,7 +1,8 @@
 - name: Combine firewall_global and firewall_group in to firewall variable
   hosts: all
-  set_fact:
-    firewall: "{{ firewall_global | combine(firewall_group) }}"
+  tasks:
+    set_fact:
+      firewall: "{{ firewall_global | combine(firewall_group) }}"
 
 - name: Run firewall System Role
   hosts: all
