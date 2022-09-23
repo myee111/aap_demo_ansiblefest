@@ -3,6 +3,8 @@
   tasks:
     - set_fact:
         firewall: "{{ firewall_global }} + {{ firewall_group | default([]) }}"
+    - debug:
+        msg: "{{ firewall }}"
 
 - name: Run firewall System Role
   hosts: all
