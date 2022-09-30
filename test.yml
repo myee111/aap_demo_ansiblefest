@@ -1,3 +1,4 @@
+---
 - name: Combine firewall variables
   hosts: all
   tasks:
@@ -19,15 +20,15 @@
   roles:
     - redhat.rhel_system_roles.firewall
 
-- name: Run nbde_server System Role
-  hosts: nbde_tang_servers
-  roles:
-    - redhat.rhel_system_roles.nbde_server
+# - name: Run nbde_server System Role
+#   hosts: nbde_tang_servers
+#   roles:
+#     - redhat.rhel_system_roles.nbde_server
        
-- name: Run nbde_client System Role
-  hosts: nbde_clevis_clients
-  roles:
-    - redhat.rhel_system_roles.nbde_client    
+# - name: Run nbde_client System Role
+#   hosts: nbde_clevis_clients
+#   roles:
+#     - redhat.rhel_system_roles.nbde_client    
 
 - name: Run timesync System Role
   hosts: all
@@ -54,10 +55,10 @@
   roles:
     - redhat.rhel_system_roles.metrics
        
-- name: Run storage System Role
-  hosts: all
-  roles:
-    - redhat.rhel_system_roles.storage
+# - name: Run storage System Role
+#   hosts: all
+#   roles:
+#     - redhat.rhel_system_roles.storage
 
 - name: Run crypto-policies System Role
   hosts: all
