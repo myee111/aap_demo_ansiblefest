@@ -7,7 +7,6 @@
         firewall_temp: 
           - "{{ firewall_global }}"
           - "{{ firewall_group_grafana | default([]) }}"
-          - "{{ firewall_group_nbde_tang_servers | default([]) }}"
     - name: flatten firewall variable      
       set_fact:
         firewall: "{{ firewall_temp | flatten}}"
