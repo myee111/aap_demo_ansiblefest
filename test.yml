@@ -1,19 +1,4 @@
 ---
-- name: Combine firewall variables
-  hosts: all
-  tasks:
-    - name: Combine firewall variables
-      set_fact:
-        firewall_temp: 
-          - "{{ firewall_global }}"
-          - "{{ firewall_group_grafana | default([]) }}"
-    - name: flatten firewall variable      
-      set_fact:
-        firewall: "{{ firewall_temp | flatten}}"
-          
-    - debug:
-        msg: "{{ firewall }}"
-
 - name: Run firewall System Role
   hosts: all
   roles:
